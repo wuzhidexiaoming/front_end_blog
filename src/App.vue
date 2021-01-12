@@ -1,27 +1,61 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + Vite" />
+  <div id="app">
+    <div class="header">
+      <router-link v-for="route in formatRoutes" :to="route.path">
+        {{ route.title }}
+      </router-link>
+    </div>
+    <div id="center">
+      <router-view />
+    </div>
+  </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import HelloWorld from './components/HelloWorld.vue'
-
+import { defineComponent } from "vue";
+import { routes } from "./router/index";
 export default defineComponent({
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-})
+  name: "App",
+  components: {},
+  setup() {
+    const formatRoutes = routes.map((ele) => {
+      let title = "";
+      if (ele.meta && ele.meta.title) {
+        title = ele.meta.title;
+      } else {
+        title = ele.name;
+      }
+      return {
+        path: ele.path,
+        name: ele.name,
+        title: title,
+      };
+    });
+    return {
+      formatRoutes,
+    };
+  },
+});
 </script>
 
 <style>
+html,
+body {
+  height: 100%;
+}
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+}
+#center {
+  max-width: 630px;
+  margin: 0 auto;
+  width: 630px;
+  background-color: gray;
+  height: calc(100% - 100px);
+}
+.header {
+  height: 100px;
+  line-height: 100px;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 </style>

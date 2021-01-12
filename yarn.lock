@@ -888,6 +888,11 @@ postcss@^8.2.1:
     nanoid "^3.1.20"
     source-map "^0.6.1"
 
+prettier@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.2.1.tgz#795a1a78dd52f073da0cd42b21f9c91381923ff5"
+  integrity sha512-PqyhM2yCjg/oKkFPtTGUojv7gnZAoG80ttl45O6x2Ug/rMJw4wcc9k6aaf2hibP7BGVCCM33gZoGjyvt9mm16Q==
+
 quick-lru@^5.1.1:
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/quick-lru/-/quick-lru-5.1.1.tgz#366493e6b3e42a3a6885e2e99d18f80fb7a8c932"
@@ -1047,6 +1052,11 @@ vscode-web-custom-data@^0.3.2:
   version "0.3.2"
   resolved "https://registry.yarnpkg.com/vscode-web-custom-data/-/vscode-web-custom-data-0.3.2.tgz#62a5a924397d8056c5524ff0ff8f14eb815b7066"
   integrity sha512-GGZ99dJbARyh6rv03dXZImGlP5WvNG382A3nIt0yX1uyqBa558L/klHWcgEJzcVkG4t16OQWwPedMR3JkeD2Qg==
+
+vue-router@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-4.0.2.tgz#5702bf8fa14535b80142fde226bf41a84917b1f4"
+  integrity sha512-LCsTSb5H25dZCxjsLasM9UED1BTg9vyTnp0Z9UhwC6QoqgLuHr/ySf7hjI/V0j2+xCKqJtecfmpghk6U8I2e4w==
 
 vue@^3.0.5:
   version "3.0.5"
