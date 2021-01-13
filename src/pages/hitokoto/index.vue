@@ -14,11 +14,13 @@ import { getHitokoto } from "../../api/data";
 export default defineComponent({
   name: "task",
   setup() {
+    let timer: number;
     let count = ref(0);
     let hitokotoData = reactive({
       data: {},
     });
     const getData = async (options: Object) => {
+      clearInterval(timer);
       count.value = 0;
       let obj = {
         size: 10,
@@ -28,7 +30,7 @@ export default defineComponent({
       options = Object.assign(obj, options);
       let responseData = await getHitokoto(options);
       count.value = 3;
-      let timer = setInterval(() => {
+      timer = setInterval(() => {
         if (count.value === 0) {
           clearInterval(timer);
         } else {
