@@ -6,10 +6,13 @@
     "build": "vuedx-typecheck . && vite build"
   },
   "dependencies": {
+    "axios": "^0.21.1",
+    "qs": "^6.9.4",
     "vue": "^3.0.5",
     "vue-router": "^4.0.2"
   },
   "devDependencies": {
+    "@types/qs": "^6.9.5",
     "@vitejs/plugin-vue": "^1.0.4",
     "@vue/compiler-sfc": "^3.0.5",
     "@vuedx/typecheck": "^0.4.1",

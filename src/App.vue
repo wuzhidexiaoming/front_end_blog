@@ -13,24 +13,34 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { routes } from "./router/index";
+import { routes } from "./router";
+
 export default defineComponent({
   name: "App",
   components: {},
   setup() {
-    const formatRoutes = routes.map((ele) => {
-      let title = "";
-      if (ele.meta && ele.meta.title) {
-        title = ele.meta.title;
-      } else {
-        title = ele.name;
-      }
-      return {
-        path: ele.path,
-        name: ele.name,
-        title: title,
-      };
-    });
+    const formatRoutes = routes
+      .filter((ele) => {
+        if (ele.meta) {
+          return ele.meta.isShow !== false;
+        } else {
+          return !!ele.name;
+        }
+      })
+      .map((ele) => {
+        let title: string;
+        if (ele.meta && ele.meta.title) {
+          title = ele.meta.title;
+        } else {
+          title = ele.name;
+        }
+        return {
+          path: ele.path,
+          name: ele.name,
+          title: title,
+        };
+      });
+    console.log(formatRoutes);
     return {
       formatRoutes,
     };

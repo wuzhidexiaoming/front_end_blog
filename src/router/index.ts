@@ -24,6 +24,28 @@ export const routes = [
     },
     component: () => import("../pages/hitokoto/index.vue"),
   },
+  {
+    path: "/task",
+    name: "task",
+    meta: {
+      isShow: false,
+      title: "任务",
+    },
+    component: () => import("../pages/task/index.vue"),
+  },
+  {
+    path: "/shanbay",
+    name: "shanbay",
+    meta: {
+      isShow: false,
+      title: "扇贝",
+    },
+    component: () => import("../pages/shanbay/index.vue"),
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    component: () => import("../pages/error/404.vue"),
+  },
 ];
 const router = createRouter({
   history: routerHistory,
