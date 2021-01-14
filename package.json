@@ -6,8 +6,13 @@
     "build": "vuedx-typecheck . && vite build"
   },
   "dependencies": {
+    "amfe-flexible": "^2.2.1",
+    "autoprefixer": "^10.2.1",
     "axios": "^0.21.1",
+    "flexible.js": "^2.0.19",
+    "postcss": "^8.2.4",
     "qs": "^6.9.4",
+    "tailwindcss": "^2.0.2",
     "vue": "^3.0.5",
     "vue-router": "^4.0.2"
   },

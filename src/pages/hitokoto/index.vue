@@ -1,8 +1,15 @@
 <template>
-  <button :disabled="count > 0" @click="getData({})">
+  <button
+    class="w-2 h-1 border rounded-sm bg-gray-50"
+    :class="{ 'cursor-not-allowed': count > 0 }"
+    :disabled="count > 0"
+    @click="getData({})"
+  >
     下一个 {{ count || "" }}
   </button>
-  <div>
+  <div
+    class="2xl:bg-gray-50 mt-1 h-2 leading-2 text-center md:text-text-normal"
+  >
     {{ hitokotoData.data.data && hitokotoData.data.data.hitokoto }}
   </div>
 </template>
@@ -26,7 +33,6 @@ export default defineComponent({
         size: 10,
         c: ["d", "i"],
       };
-      console.log(obj);
       options = Object.assign(obj, options);
       let responseData = await getHitokoto(options);
       count.value = 3;
@@ -39,7 +45,6 @@ export default defineComponent({
       }, 1000);
       console.log(responseData);
       hitokotoData.data = responseData;
-      console.log(hitokotoData);
     };
     getData();
     return {

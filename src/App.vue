@@ -1,11 +1,9 @@
 <template>
   <div id="app">
-    <div class="header">
-      <router-link v-for="route in formatRoutes" :to="route.path">
-        {{ route.title }}
-      </router-link>
+    <div class="h-1/6">
+      <mg-header />
     </div>
-    <div id="center">
+    <div class="w-9/12 mx-auto bg-blue-700 h-5/6 p-1" id="center">
       <router-view />
     </div>
   </div>
@@ -13,38 +11,12 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { routes } from "./router";
+import mgHeader from "./components/header/index.vue";
 
 export default defineComponent({
   name: "App",
-  components: {},
-  setup() {
-    const formatRoutes = routes
-      .filter((ele) => {
-        if (ele.meta) {
-          return ele.meta.isShow !== false;
-        } else {
-          return !!ele.name;
-        }
-      })
-      .map((ele) => {
-        let title: string;
-        if (ele.meta && ele.meta.title) {
-          title = ele.meta.title;
-        } else {
-          title = ele.name;
-        }
-        return {
-          path: ele.path,
-          name: ele.name,
-          title: title,
-        };
-      });
-    console.log(formatRoutes);
-    return {
-      formatRoutes,
-    };
-  },
+  components: { mgHeader },
+  setup() {},
 });
 </script>
 
@@ -55,17 +27,5 @@ body {
 }
 #app {
   height: 100%;
-}
-#center {
-  max-width: 630px;
-  margin: 0 auto;
-  width: 630px;
-  background-color: gray;
-  height: calc(100% - 100px);
-}
-.header {
-  height: 100px;
-  line-height: 100px;
-  text-align: center;
 }
 </style>
