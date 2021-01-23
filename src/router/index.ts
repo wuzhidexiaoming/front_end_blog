@@ -43,6 +43,14 @@ export const routes = [
     component: () => import("../pages/shanbay/index.vue"),
   },
   {
+    path: "/test",
+    name: "test",
+    meta: {
+      title: "测试",
+    },
+    component: () => import("../pages/Test/index.vue"),
+  },
+  {
     path: "/:pathMatch(.*)*",
     component: () => import("../pages/error/404.vue"),
   },
